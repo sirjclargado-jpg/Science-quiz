@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Earthquake Quiz</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+  }
+  h2 {
+    margin-top: 30px;
+  }
+  button {
+    margin-top: 20px;
+    padding: 10px 15px;
+    font-size: 16px;
+  }
+</style>
+</head>
+<body>
+
+<h1>Earthquake Multiple Choice Quiz</h1>
+
+<form id="quiz">
+
+<h2>1. Where does the first motion of an earthquake occur?</h2>
+<input type="radio" name="q1" value="Mantle"> Mantle<br>
+<input type="radio" name="q1" value="Epicenter"> Epicenter<br>
+<input type="radio" name="q1" value="Deep"> Deep<br>
+<input type="radio" name="q1" value="Focus"> Focus<br>
+
+<h2>2. Which of the following describes an active fault zone?</h2>
+<input type="radio" name="q2" value="It has moved one or more times in at least 10 000 years."> It has moved one or more times in at least 10 000 years.<br>
+<input type="radio" name="q2" value="It has a fault that moved downward relative to the block below."> It has a fault that moved downward relative to the block below.<br>
+<input type="radio" name="q2" value="It has not displayed any seismic activity for more than 10 000 years."> It has not displayed any seismic activity for more than 10 000 years.<br>
+<input type="radio" name="q2" value="It can generate again after long years of being dormant."> It can generate again after long years of being dormant.<br>
+
+<h2>3. What do you call the record of seismic waves detected by an instrument that monitors ground vibrations?</h2>
+<input type="radio" name="q3" value="Seismogram"> Seismogram<br>
+<input type="radio" name="q3" value="Seismograph"> Seismograph<br>
+<input type="radio" name="q3" value="Seismologist"> Seismologist<br>
+<input type="radio" name="q3" value="Seismometer"> Seismometer<br>
+
+<h2>4. Which of the following waves is the slowest?</h2>
+<input type="radio" name="q4" value="P wave"> P wave<br>
+<input type="radio" name="q4" value="Rayleigh wave"> Rayleigh wave<br>
+<input type="radio" name="q4" value="S wave"> S wave<br>
+<input type="radio" name="q4" value="Long wave"> Long wave<br>
+
+<h2>5. What does the S wave shadow zone indicate about Earth's interior?</h2>
+<input type="radio" name="q5" value="The outer core is liquid."> The outer core is liquid.<br>
+<input type="radio" name="q5" value="The mantle is denser than the crust."> The mantle is denser than the crust.<br>
+<input type="radio" name="q5" value="The mantle is purely liquid."> The mantle is purely liquid.<br>
+<input type="radio" name="q5" value="The core is made of solid iron."> The core is made of solid iron.<br>
+
+<h2>6. Which of the following generates a tsunami?</h2>
+<input type="radio" name="q6" value="Strong winds"> Strong winds<br>
+<input type="radio" name="q6" value="Disturbance on the ocean floor"> Disturbance on the ocean floor<br>
+<input type="radio" name="q6" value="Severe tropical storm"> Severe tropical storm<br>
+<input type="radio" name="q6" value="Gravitational pull of the moon"> Gravitational pull of the moon<br>
+
+<h2>7. What refers to the results or effects of the earthquake on people, structures, and surroundings?</h2>
+<input type="radio" name="q7" value="Epicenter"> Epicenter<br>
+<input type="radio" name="q7" value="Energy level"> Energy level<br>
+<input type="radio" name="q7" value="Intensity"> Intensity<br>
+<input type="radio" name="q7" value="Magnitude"> Magnitude<br>
+
+<h2>8. What government agency in our country is responsible for monitoring and observing earthquakes and tsunamis?</h2>
+<input type="radio" name="q8" value="DOST"> DOST<br>
+<input type="radio" name="q8" value="PAG-ASA"> PAG-ASA<br>
+<input type="radio" name="q8" value="DENR"> DENR<br>
+<input type="radio" name="q8" value="PHIVOLCS"> PHIVOLCS<br>
+
+<button type="button" onclick="checkAnswers()">Submit Quiz</button>
+</form>
+
+<h2 id="result"></h2>
+
+<script>
+function checkAnswers() {
+  const answers = {
+    q1: "Focus",
+    q2: "It has moved one or more times in at least 10 000 years.",
+    q3: "Seismogram",
+    q4: "Rayleigh wave",
+    q5: "The outer core is liquid.",
+    q6: "Disturbance on the ocean floor",
+    q7: "Intensity",
+    q8: "PHIVOLCS"
+  };
+
+  let score = 0;
+  let total = Object.keys(answers).length;
+
+  for (let q in answers) {
+    let selected = document.querySelector(`input[name="${q}"]:checked`);
+    if (selected && selected.value === answers[q]) {
+      score++;
+    }
+  }
+
+  document.getElementById("result").innerText =
+    "Your score: " + score + " / " + total;
+}
+</script>
+
+</body>
+</html>
